@@ -1,6 +1,8 @@
 .cell {
-    width: 750px;
-    height: 750px;
+    width: 90vw;
+    height: 90vw;
+    max-width: 750px;
+    max-height: 750px;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -19,6 +21,7 @@
 
 .name {
     font-size: 36px;
+    text-align: center;
 }
 
 .description {
@@ -31,4 +34,27 @@
 .link {
     font-size: 16px;
     margin-bottom: 5%;
+}
+
+.cell::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+.cell::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #100D2E;
+}
+
+.cell::-webkit-scrollbar-track:hover {
+  background-color: #1D1753;
+}
+
+.cell::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #4468A6;
+}
+
+.cell::-webkit-scrollbar-thumb:hover {
+  background-color: #4E78BF;
 }

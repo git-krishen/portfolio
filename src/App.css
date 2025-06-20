@@ -1,7 +1,12 @@
 #root {
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   max-width: 100%;
+}
+
+html {
+  position: relative;
+  overflow-x: hidden;
 }
 
 .container {
@@ -10,7 +15,6 @@
   align-self: center;
   justify-content: center;
   height: 50rem;
-  white-space: pre;
 }
 
 .layer1{
@@ -20,22 +24,42 @@
 } 
 
 .layer2 {
-  width: 50vw;
+  overflow-wrap: break-word;
+  grid-row: 1;
+  white-space: pre-wrap;
+  width: 75vw;
   z-index: 11;
   display: flex;
-  align-self: left;
   justify-items: center;
   position: absolute;
   left: 8.5%;
   font-size: 100px;
 }
 
-.layer3 {
-  position: absolute;
-  top: 40%;
-  left: 0.2%;
-  z-index: 12;
-  font-size: 64px;
+@media (max-width: 843px) {
+  .layer3 {
+    grid-row: 2;
+    white-space: pre-wrap;
+    position: absolute;
+    top: 65%;
+    left: 0.2%;
+    max-width: 90vw;
+    z-index: 12;
+    font-size: 64px;
+  }
+}
+
+@media (min-width:843px) {
+  .layer3 {
+    grid-row: 2;
+    white-space: pre-wrap;
+    position: absolute;
+    top: 45%;
+    left: 0.2%;
+    max-width: 90vw;
+    z-index: 12;
+    font-size: 64px;
+  }
 }
 
 .cursor {
@@ -68,8 +92,10 @@ h1 {
 
 .portrait {
   grid-column: 1;
-  height: 300px;
-  width: 300px;
+  width: 30vw;
+  height: 30vw;
+  max-height: 300px;
+  max-width: 300px;
   object-fit: cover;
   object-position: 0-0px;
   clip-path: circle();
@@ -81,6 +107,7 @@ h1 {
   margin-left: 5%;
   line-clamp: 4;
   overflow: auto;
+  overflow-wrap: break-word;
 }
 
 .info * {
@@ -128,8 +155,10 @@ h1 {
 }
 
 .linkThumbnail {
-  width: 150px;
-  height: 150px;
+  width: 20vw;
+  height: 20vw;
+  max-width: 150px;
+  max-height: 150px;
   filter: brightness(1000%);
 }
 
