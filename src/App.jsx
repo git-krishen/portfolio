@@ -9,6 +9,7 @@ import robot_2024 from "./assets/robot_2024.jpg";
 import travlz from "./assets/travlz_logo.png";
 import recur from "./assets/recur1.png";
 import robot_2025 from "./assets/robot_2025.jpg";
+import pocketllm from "./assets/pocketllm_logo.png";
 import mail from "./assets/mail.svg";
 import github from "./assets/github-mark.svg";
 import resume from "./assets/resume.svg";
@@ -33,8 +34,8 @@ function App() {
         <h1>About</h1>
         <img src={me} alt='What I look like' className='portrait' />
         <ul className='info'>
-          <li>I'm a junior in high school with a long-standing love of computers</li>
-          <li>Currently working as the head of software of the CPHS Robotics team, I've gained experience with collaborative development and working with a shared codebase</li>
+          <li>I'm a senior in high school with a long-standing love of computers</li>
+          <li>Currently working as the head of software of the CPHS FRC Robotics team, I've gained experience with collaborative development and working with a shared codebase</li>
           <li>I enjoy tinkering with all sorts of projects, from embedded systems to AI to networking and more.</li>
         </ul>
       </div>
@@ -64,17 +65,23 @@ function App() {
           projectDesc={'11th grade - As the 2025 Head of Software of the CPHS Robolobos, I fully developed the code for the 2025 season robot, including code for the elevator, claw, leds, autonomous functions, and more. My experiences with this taught me a lot about managing a large project, such as documentation, cohesion and coupling, writing readable code, etc.'} 
           projectLink={'https://github.com/FRC5052/FRC2025Robot'}
         />
+        <ProjectView
+          projectImg={pocketllm}
+          projectName={'PocketLLM'}
+          projectDesc={'12th grade - Over the summer I taught myself Dart, and built a Flutter app that allows you to run an AI model locally on your device. On the backend, it uses a Flask API hosted on Vercel to resolve download URLs, and a package I open-sourced that uses bindings between raw llama.cpp functions and Dart code to run the model. This project taught me how to work with low-level C++ code (i.e. pointers, memory management), how to create an app using the Flutter framework, how to create and host my own RESTful Flask API, and generally how to work on and organize a large, multi-language project.'}
+          projectLink={'https://github.com/git-krishen/PocketLLM'}
+        />
       </div>
       <h1 id='contact'>Contact</h1>
       <div className='contactInfo'>
         <a href='mailto:krishenaryen@gmail.com'>
-          <img src={mail} alt='Mail' title='Email Me!' className='linkThumbnail'/>
+          <img src={mail} alt='My Email' title='Email Me!' className='linkThumbnail'/>
         </a>
         <a href='https://github.com/git-krishen'>
-          <img src={github} alt='Mail' title='Check out my Github!' className='linkThumbnail'/>
+          <img src={github} alt='My Github' title='Check out my Github!' className='linkThumbnail'/>
         </a>
         <a>
-          <img src={resume} alt='Mail' title='My resume (TBD)' className='linkThumbnail'/>
+          <img src={resume} alt='My Resume' title='My resume (TBD)' className='linkThumbnail'/>
         </a>
       </div>
     </>
@@ -82,30 +89,3 @@ function App() {
 }
 
 export default App;
-
-
-// const [count, setCount] = useState(0)
-// return (
-//   <>
-//     <div>
-//       <a href="https://vite.dev" target="_blank">
-//         <img src={viteLogo} className="logo" alt="Vite logo" />
-//       </a>
-//       <a href="https://react.dev" target="_blank">
-//         <img src={reactLogo} className="logo react" alt="React logo" />
-//       </a>
-//     </div>
-//     <h1>Vite + React</h1>
-//     <div className="card">
-//       <button onClick={() => setCount((count) => count + 1)}>
-//         count is {count}
-//       </button>
-//       <p>
-//         Edit <code>src/App.jsx</code> and save to test HMR
-//       </p>
-//     </div>
-//     <p className="read-the-docs">
-//       Click on the Vite and React logos to learn more
-//     </p>
-//   </>
-// )
