@@ -1,62 +1,88 @@
 .cell {
-    width: 90vw;
-    height: 90vw;
-    max-width: 750px;
-    max-height: 750px;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #423c9a20;
-    margin: 5%;
-    border-radius: 10%;
-    overflow: auto;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --sheen-x: 50%;
+  --sheen-y: 50%;
+  width: 90vw;
+  height: 90vw;
+  max-width: 750px;
+  max-height: 750px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: linear-gradient(145deg, #423c9a32, #423c9a18 60%, #6960bc24);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  box-shadow: inset 0 1px #ffffff20, 0 12px 28px #05041a24;
+  margin: 5%;
+  border-radius: 10%;
+  overflow: auto;
+  transform: perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform 240ms ease, box-shadow 240ms ease;
 }
+
+.cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(125px circle at var(--sheen-x) var(--sheen-y), #e8e2ff2e, transparent 75%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.cell:hover::before { opacity: 1; }
+.cell:hover { box-shadow: inset 0 1px #ffffff2a, 0 16px 34px #05041a32; }
 
 .image {
-    max-width: 90%;
-    min-height: 40%;
-    margin-top: 5%;
-    border-radius: 10%;
+  max-width: 90%;
+  min-height: 40%;
+  margin-top: 5%;
+  border-radius: 10%;
+  transition: transform 260ms ease, filter 260ms ease;
 }
 
-.name {
-    font-size: 36px;
-    text-align: center;
+.image:hover {
+  transform: translateY(-7px);
+  filter: drop-shadow(0 0 12px #646cffaa) drop-shadow(0 12px 13px #07051f99);
+}
+
+.name { 
+  font-size: 36px; 
+  text-align: center;
+  text-shadow: 0 0 3px #868cffbb;
 }
 
 .description {
-    font-size: 18px;
-    margin-top: 0%;
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: center;
+  font-size: 18px;
+  margin-top: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  text-shadow: 0 0 2px #868cffbb;
 }
 
 .link {
-    font-size: 16px;
-    margin-bottom: 5%;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 5%;
+  transition: transform 260ms ease;
 }
+.link:hover,
+.link:focus-visible { transform: scale(1.08); text-shadow: none; }
 
-.cell::-webkit-scrollbar {
-  height: 10px;
-  width: 10px;
-}
+.cell::-webkit-scrollbar { height: 10px; width: 10px; }
+.cell::-webkit-scrollbar-track { border-radius: 5px; background-color: #100d2e; }
+.cell::-webkit-scrollbar-track:hover { background-color: #1d1753; }
+.cell::-webkit-scrollbar-thumb { border-radius: 5px; background-color: #4468a6; }
+.cell::-webkit-scrollbar-thumb:hover { background-color: #4e78bf; }
 
-.cell::-webkit-scrollbar-track {
-  border-radius: 5px;
-  background-color: #100D2E;
-}
-
-.cell::-webkit-scrollbar-track:hover {
-  background-color: #1D1753;
-}
-
-.cell::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #4468A6;
-}
-
-.cell::-webkit-scrollbar-thumb:hover {
-  background-color: #4E78BF;
+@media (prefers-reduced-motion: reduce) {
+  .cell { transform: none; transition: none; }
+  .cell::before { transition: none; }
+  .image { transition: none; }
+  .link { transition: none; }
 }

@@ -1,0 +1,35 @@
+.projectSection { width: 100%; }
+
+.projectList {
+  width: 100%;
+  margin: 1rem auto;
+  display: grid;
+  justify-items: center;
+  grid-gap: 20px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(min(90vw, 750px), 750px));
+  max-width: 1540px;
+}
+
+.projectExpand {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #423c9a50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.projectExpand:hover,
+.projectExpand:focus-visible {
+  background: #5850aa80;
+  box-shadow: 0 0 15px #646cff88;
+  transform: translateY(2px);
+}
+.projectExpand svg { width: 24px; height: 24px; transition: transform 200ms ease; }
+.projectExpand.isExpanded svg { transform: rotate(180deg); }

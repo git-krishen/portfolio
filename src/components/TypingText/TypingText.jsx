@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { randInt } from 'three/src/math/MathUtils.js';
 
 const strings = [
@@ -37,7 +37,7 @@ const TypingText = ({ delay, infinite }) => {
         }
 
         return () => clearTimeout(timeout);
-    }, [currentIndex, delay, infinite, text]);
+    }, [currentIndex, delay, infinite]);
 
     return <span>{currentText}</span>;
 };

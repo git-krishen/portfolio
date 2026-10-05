@@ -1,6 +1,8 @@
 import './App.css'
-import EffectBackground from './components/EffectBackground/EffectBackground.jsx'
+import TwinkleBackground from './components/TwinkleBackground/TwinkleBackground.jsx'
+import DrippingBackground from './components/IntroBackgrounds/DrippingBackground/DrippingBackground.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
+import ProjectList from './components/ProjectList/ProjectList.jsx'
 import ProjectView from './components/ProjectView/ProjectView.jsx'
 import TypingText from './components/TypingText/TypingText.jsx'
 
@@ -19,14 +21,15 @@ function App() {
 
   return (
     <>
+      <TwinkleBackground density={0.8} brightness={0.72} frequency={0.55} cursorRadius={200} cursorBrighten={2} />
       <Navbar />
       <div className='container'>
-        <div className='layer1'><EffectBackground /></div>
+        <div className='layer1'><DrippingBackground /></div>
         <div className='layer2'>
-          <p>Hi, I'm Krishen</p>
+          <p>Hi, I&apos;m Krishen</p>
           <div className='layer3'>
             <p>
-              I'm a...<TypingText delay={100} infinite /><span className='cursor'>|</span>
+              I&apos;m a...<TypingText delay={100} infinite /><span className='cursor'>|</span>
             </p>
           </div>
         </div>
@@ -35,13 +38,13 @@ function App() {
         <h1>About</h1>
         <img src={me} alt='What I look like' className='portrait' />
         <ul className='info'>
-          <li>I'm a freshman at UT Austin with a long-standing love of computers</li>
-          <li>I enjoy tinkering with all sorts of projects, from embedded systems to AI to networking and more.</li>
+          <li>I&apos;m a freshman at UT Austin with a long-standing love of computers</li>
+          <li>I enjoy tinkering with all sorts of projects, from embedded systems to AI to networking and more</li>
           <li>As a UTCS student, I hope to continue to develop my skill repetoire in computer science and gain industry experience</li>
         </ul>
       </div>
       <h1 id='projects'>Projects</h1>
-      <div className='projectList'>
+      <ProjectList scrollCutoff={2}>
         <ProjectView
           projectImg={pocketllm}
           projectName={'PocketLLM'}
@@ -63,7 +66,7 @@ function App() {
         <ProjectView
           projectImg={recur}
           projectName={'Portfolio Website V1'}
-          projectDesc={'11th grade - The very website you are viewing this on! I created the entire thing from scratch, and to do so I learned several new things. Since it was the first time I\'d created a website, I started with HTML, CSS, and Javscript in general, then moved on to the React Framework, then added extras like ThreeJS and its React-Three-Fiber counterpart. The whole process taught me a lot about web-dev, and the frontend side of programming in general, a field I previously had less experience in comparatively.'}
+          projectDesc={'11th grade - The first version of the very website you are viewing this on! I created the entire thing from scratch, and to do so I learned several new things. Since it was the first time I\'d created a website, I started with HTML, CSS, and Javscript in general, then moved on to the React Framework, then added extras like ThreeJS and its React-Three-Fiber counterpart. The whole process taught me a lot about web-dev, and the frontend side of programming in general, a field I previously had less experience in comparatively.'}
           projectLink={'#'}
         />
         <ProjectView
@@ -78,19 +81,21 @@ function App() {
           projectDesc={'10th grade - During the 2024 FRC season, I worked with the 2024 Head of Software to develop a swerve drive subsystem from the ground up, a complex endeavor that majorly advanced our robot\'s capabilities on the field.'}
           projectLink={'https://github.com/FRC5052/SwerveDriveTest'}
         />
-      </div>
-      <h1 id='contact'>Contact</h1>
-      <div className='contactInfo'>
-        <a href='mailto:krishenaryen@gmail.com'>
-          <img src={mail} alt='My Email' title='Email Me!' className='linkThumbnail' />
-        </a>
-        <a href='https://github.com/git-krishen'>
-          <img src={github} alt='My Github' title='Check out my Github!' className='linkThumbnail' />
-        </a>
-        <a>
-          <img src={resume} alt='My Resume' title='My resume (TBD)' className='linkThumbnail' />
-        </a>
-      </div>
+      </ProjectList>
+      <section className='contactSection'>
+        <h1 id='contact'>Contact</h1>
+        <div className='contactInfo'>
+          <a href='mailto:krishenaryen@gmail.com' aria-label='Email me'>
+            <img src={mail} alt='My Email' title='Email Me!' className='linkThumbnail' />
+          </a>
+          <a href='https://github.com/git-krishen' aria-label='My Github'>
+            <img src={github} alt='My Github' title='Check out my Github!' className='linkThumbnail' />
+          </a>
+          <span>
+            <img src={resume} alt='My Resume' title='My resume (TBD)' className='linkThumbnail' />
+          </span>
+        </div>
+      </section>
     </>
   )
 }
